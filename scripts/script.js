@@ -32,6 +32,20 @@ function generateGrid(gridSize) {
   }
 }
 
+function resetGrid() {
+  const grid = document.querySelector("#etch-a-sketch");
+  const buttonPrompt = prompt("Please enter grid dimensions");
+  let gridSize = parseInt(buttonPrompt);
+
+  while (!Number.isInteger(gridSize) || gridSize > 100 || gridSize < 10) {
+    gridSize = parseInt(prompt("Please enter a number between 10 and 100"));
+  }
+
+  grid.innerHTML = "";
+
+  generateGrid(gridSize);
+}
+
 function updatePixel(pixel) {
   const pixelStyle = getComputedStyle(pixel);
   let pixelBrightness;
@@ -69,8 +83,10 @@ function getRandomColor() {
   return colors[random];
 }
 
+const setGrid = document.querySelector("button");
 const body = document.querySelector("body");
 
+setGrid.addEventListener("click", resetGrid);
 body.addEventListener("resize", setCanvas);
 
 setCanvas();
