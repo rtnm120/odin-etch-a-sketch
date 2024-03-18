@@ -39,3 +39,14 @@ div:first-child {
   margin: 20px;
   padding: 0;
 }
+
+button {
+  margin: 0;
+  padding: 15px 30px;
+  background-color: #74c7ec;
+  border: none;
+}
+
+button:hover {
+  background-color: #89dceb;
+}
