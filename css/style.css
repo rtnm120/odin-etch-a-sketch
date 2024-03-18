@@ -23,3 +23,19 @@ body {
   margin: 0;
   padding: 10px;
 }
+
+#content {
+  flex: 1;
+  margin: 0;
+  padding: 0;
+  width: 100%;
+}
+
+div:first-child {
+  height: 7vh;
+}
+
+#etch-a-sketch {
+  margin: 20px;
+  padding: 0;
+}
