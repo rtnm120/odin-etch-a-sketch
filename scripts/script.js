@@ -32,6 +32,43 @@ function generateGrid(gridSize) {
   }
 }
 
+function updatePixel(pixel) {
+  const pixelStyle = getComputedStyle(pixel);
+  let pixelBrightness;
+
+  if (pixelStyle["filter"] != "none") {
+    pixelBrightness = parseFloat(
+      pixelStyle["filter"].split("(")[1].slice(0, -1),
+    );
+    pixel.style["filter"] = `brightness(${pixelBrightness - 0.11})`;
+  } else {
+    pixel.style["background-color"] = getRandomColor();
+    pixel.style["filter"] = "brightness(1)";
+  }
+}
+
+function getRandomColor() {
+  const colors = [
+    "#f5e0dc",
+    "#f2cdcd",
+    "#f5c2e7",
+    "#cba6f7",
+    "#f38ba8",
+    "#eba0ac",
+    "#fab387",
+    "#f9e2af",
+    "#a6e3a1",
+    "#94e2d5",
+    "#89dceb",
+    "#74c7ec",
+    "#89b4fa",
+    "#b4befe",
+  ];
+
+  const random = Math.floor(Math.random() * colors.length);
+  return colors[random];
+}
+
 const body = document.querySelector("body");
 
 body.addEventListener("resize", setCanvas);
