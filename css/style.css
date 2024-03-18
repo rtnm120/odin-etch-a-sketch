@@ -50,3 +50,8 @@ button {
 button:hover {
   background-color: #89dceb;
 }
+
+.pixel {
+  box-sizing: border-box;
+  border: 1px solid #585b70;
+}
