@@ -18,4 +18,19 @@ function setCanvas() {
   }
 }
 
+function generateGrid(gridSize) {
+  const grid = document.querySelector("#etch-a-sketch");
+  for (i = 0; i < gridSize * gridSize; i++) {
+    pixel = document.createElement("div");
+    pixel.classList.add("pixel");
+    pixel.style["height"] = `${(1 / gridSize) * 100}%`;
+    pixel.style["width"] = `${(1 / gridSize) * 100}%`;
+    grid.appendChild(pixel);
+    pixel.addEventListener("mouseenter", (activatedPixel) => {
+      updatePixel(activatedPixel.target);
+    });
+  }
+}
+
 setCanvas();
+generateGrid(16);
