@@ -32,5 +32,9 @@ function generateGrid(gridSize) {
   }
 }
 
+const body = document.querySelector("body");
+
+body.addEventListener("resize", setCanvas);
+
 setCanvas();
 generateGrid(16);
